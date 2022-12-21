@@ -1,0 +1,69 @@
+FoamFile {
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object fvSolution;
+}
+
+
+solvers
+{   
+    alpha.air 
+    {
+        max 0.9999;
+    }
+    p
+    {
+        solver          GAMG;
+        tolerance       1e-5;
+        relTol          0.1;
+        smoother        GaussSeidel;
+    }
+
+    pFinal
+    {
+        solver          GAMG;
+        tolerance       1e-5;
+        relTol          0.1;
+        smoother        GaussSeidel;
+    }
+
+    "(omega|U|k|nuTilda).air"
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-05;
+        relTol          0.1;
+    }
+
+    "(omega|U|k|nuTilda).airFinal"
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance 1e-5;
+        relTol          0.1;
+    }
+
+    cloud:alpha
+    {
+        solver          GAMG;
+        tolerance       1e-06;
+        relTol          0.1;
+        smoother        GaussSeidel;
+    }
+}
+    
+
+
+PIMPLE
+{
+    nOuterCorrectors 1;
+    nCorrectors     4;
+    momentumPredictor yes;
+    nNonOrthogonalCorrectors 0;
+    pRefCell        0;
+    pRefValue       0;
+}
+
+
+
