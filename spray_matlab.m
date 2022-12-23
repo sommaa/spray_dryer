@@ -1,5 +1,3 @@
-clc; clear; close all
-
 %                         ________  ________  ________  ________      ___    ___ ________                              %
 %                        |\   ____\|\   __  \|\   __  \|\   __  \    |\  \  /  /|\   ___ \                             %
 %                        \ \  \___|\ \  \|\  \ \  \|\  \ \  \|\  \   \ \  \/  / | \  \_|\ \                            %
@@ -13,6 +11,8 @@ clc; clear; close all
 %                                            Author: Andrea Somma;                                                     % 
 %                                            Politecnico of Milan 2021-2022                                            % 
 %                                                                                                                      %     
+
+clc; clear; close all
 
 global P Gdry A B C rhoL Kpw nAvp h MWwater MWair dHev CpL CpG muG dp mp0 vg rho_milk fat kG Diff R Tg0
 
@@ -109,9 +109,10 @@ subplot(2,2,1)
 plot(y(:,6), y(:,1),"LineWidth",1.4,"Color",cc(1,:))
 hold on
 plot([lenght lenght],[-1000 1000],"LineStyle","-.")
-xlabel('Axial coordinate [m]')
-ylabel('Particle mass [kg]')
+xlabel('Axial coordinate [m]','FontWeight','bold','FontSmoothing','on','FontSize',14)
+ylabel('Particle mass [kg]','FontWeight','bold','FontSmoothing','on','FontSize',14)
 ylim([min(y(:,1))/5,max(y(:,1))*1.1])
+legend('Particle Mass','Usefull Lenght')
 hold off
 
 subplot(2,2,2)
@@ -119,9 +120,9 @@ plot(y(:,6),y(:,3),"LineWidth",1.4,"Color",cc(1,:))
 hold on
 plot(y(:,6),y(:,4),"LineWidth",1.4,"Color",cc(4,:))
 plot([lenght lenght],[-1000 1000],"LineStyle","-.")
-xlabel('Axial coordinate [m]')
-ylabel('Temperature [K]')
-legend('Particle','Air')
+xlabel('Axial coordinate [m]','FontWeight','bold','FontSmoothing','on','FontSize',14)
+ylabel('Temperature [K]','FontWeight','bold','FontSmoothing','on','FontSize',14)
+legend('Particle','Air','Usefull Lenght')
 ylim([min(y(:,3))/1.05,max(y(:,4))*1.05])
 hold off
 
@@ -130,9 +131,9 @@ plot(y(:,6),y(:,5),"LineWidth",1.4,"Color",cc(1,:))
 hold on
 plot(y(:,6), vg + y(:,5),"LineWidth",1.4,"Color",cc(4,:))
 plot(y(:,6), vg * ones(1 * length(tspan)),"LineWidth",1.4,"Color",cc(6,:))
-plot([lenght lenght],[-1000 1000],"LineStyle","-.")
-xlabel('Axial coordinate [m]')
-ylabel('Velocity [m/s]')
+plot([lenght lenght],[-1000 1000],"LineStyle","-.","Color","r")
+xlabel('Axial coordinate [m]','FontWeight','bold','FontSmoothing','on','FontSize',14)
+ylabel('Velocity [m/s]','FontWeight','bold','FontSmoothing','on','FontSize',14)
 legend('vs','vp','vg')
 ylim([min(y(:,5))/5,max(vg + y(:,5))*1.1])
 hold off
@@ -141,8 +142,9 @@ subplot(2,2,4)
 plot(tspan,y(:,6),"LineWidth",1.4,"Color",cc(1,:))
 hold on
 plot([time time],[-1000 1000],"LineStyle","-.")
-xlabel('Time [s]')
-ylabel('Axial coordinate [m]')
+xlabel('Time [s]','FontWeight','bold','FontSmoothing','on','FontSize',14)
+ylabel('Axial coordinate [m]','FontWeight','bold','FontSmoothing','on','FontSize',14)
+legend('Axial Position','Usefull Lenght')
 ylim([min(y(:,6)),max(y(:,6))*1.1])
 hold off
 
@@ -177,6 +179,7 @@ global P Gdry A B C rhoL Kpw nAvp h MWwater MWair dHev CpL CpG muG dp mp0 vg rho
     Sc = muG / rhoG / Diff;      						% Schmidt
     Nu = 2 + 0.4 * Re^0.5 * Pr^(1/3);                  	% Nusselt
     Sh = 2 + 0.4 * Re^0.5 * Sc^(1/3);                  	% Sherwood
+    f = (1 + 0.14*Re^0.7);                              % Drag factor
     h = Nu * kG / dp;                             		% kcal/m^2/s/K
     Kc = Sh * Diff/ dp;                      			% m/s
     Kpw = Kc / R / Tg * MWwater;         			    % kg/m^2/s/atm
@@ -194,7 +197,7 @@ global P Gdry A B C rhoL Kpw nAvp h MWwater MWair dHev CpL CpG muG dp mp0 vg rho
     spraydryer(2) = -Kpw * Sp * (Pw-P0) * nAvp;
     spraydryer(3) = (h * Sp * (Tg - Tp) + spraydryer(1) * dHev) / mp / CpL;
     spraydryer(4) = -h * Sp * (Tg - Tp) * nAvp / (Gvap + Gdry) / CpG;
-    spraydryer(5) = ((1 - rhoG / rho_avg) * 9.81 - 3 * vs * muG * 3.14 * dp /mp - vs * spraydryer(1) / mp);
+    spraydryer(5) = ((1 - rhoG / rho_avg) * 9.81 - 3 * f * vs * muG * 3.14 * dp /mp - vs * spraydryer(1) / mp);
     spraydryer(6) = (vs+vg);
     
     spraydryer = spraydryer';
