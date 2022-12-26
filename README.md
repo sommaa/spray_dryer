@@ -1,6 +1,18 @@
 # spray_dryer
 Mathematical modeling of a spray dryer in matlab and OpenFoam (only flow-dynamic).
 
+## 1-D model
+Simulation details [Matlab-new](./spray_matlab.m):
+- non-dimensional numbers calculated inside the integral function;
+- constrained evaluation of mass and particle diameter;
+- weighted evaluation of density;
+
+Simulation details [Matlab-corrected](./spray_dryer_corrected):
+- non-dimensional numbers calculated inside the integral function;
+- constrained evaluation of mass and particle diameter;
+- weighted evaluation of density;
+- surface confined axial jet correlation from [Hydraulic characteristics of turbulent circular jets under surface confinement](https://doi.org/10.1080/09715010.2013.876725)
+## 3D-model
 Simulation details RAS:
 - 2Mln mesh cells;
 - k-omega-SST RAS model;
@@ -16,11 +28,11 @@ Simulation details RAS + DPFoam:
 - Drag Force + gravity + boundaries rebound/escape;
 
 # Results:
-- plot new model:
+- plot [Matlab-new](./spray_matlab.m):
 
 ![SI](https://user-images.githubusercontent.com/120776791/209564200-ea86d385-22e0-42ba-93f6-3a1c8d237bb8.svg)
 
-- plot new-corrected for D-ratio = 1.5
+- plot [Matlab-corrected](./spray_dryer_corrected) for D-ratio = 1.5
 
 ![1 5](https://user-images.githubusercontent.com/120776791/209564053-b41b8e1c-f7ac-46d1-89bb-2a8bc1c4743d.svg)
 
