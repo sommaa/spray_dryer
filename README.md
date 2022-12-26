@@ -7,19 +7,19 @@ Simulation details [Matlab-new](./spray_matlab.m):
 - constrained evaluation of mass and particle diameter;
 - weighted evaluation of density;
 
-Simulation details [Matlab-corrected](./spray_dryer_corrected):
+Simulation details [Matlab-corrected](./spray_dryer_corr):
 - non-dimensional numbers calculated inside the integral function;
 - constrained evaluation of mass and particle diameter;
 - weighted evaluation of density;
 - surface confined axial jet correlation from [Hydraulic characteristics of turbulent circular jets under surface confinement](https://doi.org/10.1080/09715010.2013.876725)
 ## 3D-model
-Simulation details RAS:
+Simulation details [RAS](./spray_RAS):
 - 2Mln mesh cells;
 - k-omega-SST RAS model;
 - inlet Q=20Kg/s;
 - outlet Pout = 0;
 
-Simulation details RAS + DPFoam:
+Simulation details [RAS + DPFoam](./spray_part):
 - 2Mln mesh cells;
 - k-omega-SST RAS model;
 - inlet Q=20Kg/s;
