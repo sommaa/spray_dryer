@@ -16,9 +16,13 @@ Simulation details RAS + DPFoam:
 - Drag Force + gravity + boundaries rebound/escape;
 
 # Results:
-- plots:
+- plot new model:
 
-![alt text](https://user-images.githubusercontent.com/120776791/208312149-7220aad5-b359-4f35-975e-260bfc9bc003.svg)
+![SI](https://user-images.githubusercontent.com/120776791/209564200-ea86d385-22e0-42ba-93f6-3a1c8d237bb8.svg)
+
+- plot new-corrected for D-ratio = 1.5
+
+![1 5](https://user-images.githubusercontent.com/120776791/209564053-b41b8e1c-f7ac-46d1-89bb-2a8bc1c4743d.svg)
 
 - 3D flow in OpenFoam:
 
