@@ -1,5 +1,5 @@
 # spray_dryer
-Mathematical modeling of a spray dryer in matlab and OpenFoam (only flow-dynamic), further informations in [pdf](./pdf)
+Mathematical modeling of a spray dryer in matlab and OpenFoam (only flow-dynamic), modified from [SuPER](https://super.chem.polimi.it/) script, further informations in [pdf](./pdf).
 
 ## 1-D model
 Simulation details [Matlab-new](./spray_matlab.m):
