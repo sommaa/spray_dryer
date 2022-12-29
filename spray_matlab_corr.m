@@ -8,9 +8,11 @@
 %                           \|_________|                            \|___|/                                            %
 %                                                                                                                      %
 %                                                                                                                      %
-%                                            Author: Andrea Somma;                                                     % 
-%                                            Politecnico of Milan 2021-2022                                            % 
-%                                                                                                                      % 
+%                                            Author: Andrea Somma;                                                     %
+%                                            Politecnico of Milan 2021-2022                                            %
+%                                            modified from:                                                            %
+%                                            https://super.chem.polimi.it/                                             %
+%                                                                                                                      %
 
 clc; clear; close all
 
