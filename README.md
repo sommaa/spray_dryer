@@ -1,4 +1,13 @@
-# spray_dryer
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/sommaa/spray_dryer">
+    <img src="./image/blender_ext.png" alt="Logo" width="450" height="240">
+  </a>
+      <br />
+    <h1 align="center">Spray Dryer</h3>
+</div>
+
 Mathematical modeling of a spray dryer in matlab and OpenFoam (only flow-dynamic), modified from [SuPER](https://super.chem.polimi.it/) script, further informations in [pdf](./pdf).
 
 ## 1-D model
