@@ -14,7 +14,7 @@
 
 clc; clear; close all
 
-global P Gdry A B C rhoL nAvp MWwater MWair dHev CpL CpG muG dp mp0 vg_dev rho_milk fat kG Diff R Tg0 inletD Dratio
+global P Gdry A B C rhoL nAvp MWwater MWair dHev CpL CpG muG dp mp0 vg_dev rho_milk fat kG Diff R Tg0 inletD Dratio rhoG
 
 %% ---------------------------------------------------------------------------------------------------------------------
 % Physical Properties
@@ -63,7 +63,7 @@ nAvp = Qmilk / mp0;                            	% drops/s
 %% ---------------------------------------------------------------------------------------------------------------------
 Gdry = 20;										% kg/s
 D = 5.5;                                        % m
-Dratio = 3;                                     % -
+Dratio = 1.2;                                   % -
 inletD = D/Dratio;                              % m
 
 %% ---------------------------------------------------------------------------------------------------------------------
@@ -121,14 +121,14 @@ legend('Particle Mass','Usefull Lenght')
 hold off
 
 subplot(2,2,2)
-plot(y(:,6),y(:,3),"LineWidth",1.4,"Color",cc(1,:))
+plot(tspan,y(:,6),"LineWidth",1.4,"Color",cc(1,:))
 hold on
-plot(y(:,6),y(:,4),"LineWidth",1.4,"Color",cc(4,:))
-plot([lenght lenght],[-1000 1000],"LineStyle","-.")
-xlabel('Axial coordinate [m]','FontWeight','bold','FontSmoothing','on','FontSize',14)
-ylabel('Temperature [K]','FontWeight','bold','FontSmoothing','on','FontSize',14)
-legend('Particle','Air','Usefull Lenght')
-ylim([min(y(:,3))/1.05,max(y(:,4))*1.05])
+plot([time time],[-1000 1000],"LineStyle","-.")
+xlabel('Time [s]','FontWeight','bold','FontSmoothing','on','FontSize',14)
+ylabel('Axial coordinate [m]','FontWeight','bold','FontSmoothing','on','FontSize',14)
+legend('Axial Position','Usefull Lenght')
+ylim([min(y(:,6)),max(y(:,6))*1.1])
+sgtitle(strcat("D ratio = ",num2str(Dratio),", lenght = ",num2str(lenght),"m"),'FontWeight','bold','FontSize',18)
 hold off
 
 subplot(2,2,3)
@@ -144,14 +144,14 @@ ylim([-0.8,max(vz + y(:,5))*1.1])
 hold off
 
 subplot(2,2,4)
-plot(tspan,y(:,6),"LineWidth",1.4,"Color",cc(1,:))
+plot(y(:,6),y(:,3),"LineWidth",1.4,"Color",cc(1,:))
 hold on
-plot([time time],[-1000 1000],"LineStyle","-.")
-xlabel('Time [s]','FontWeight','bold','FontSmoothing','on','FontSize',14)
-ylabel('Axial coordinate [m]','FontWeight','bold','FontSmoothing','on','FontSize',14)
-legend('Axial Position','Usefull Lenght')
-ylim([min(y(:,6)),max(y(:,6))*1.1])
-sgtitle(strcat("D ratio = ",num2str(Dratio),", lenght = ",num2str(lenght),"m"),'FontWeight','bold','FontSize',18)
+plot(y(:,6),y(:,4),"LineWidth",1.4,"Color",cc(4,:))
+plot([lenght lenght],[-1000 1000],"LineStyle","-.")
+xlabel('Axial coordinate [m]','FontWeight','bold','FontSmoothing','on','FontSize',14)
+ylabel('Temperature [K]','FontWeight','bold','FontSmoothing','on','FontSize',14)
+legend('Particle','Air','Usefull Lenght')
+ylim([min(y(:,3))/1.05,max(y(:,4))*1.05])
 hold off
 
 fig=gcf;
@@ -162,7 +162,7 @@ fig.Position(3:4)=[1400,800];
 %% ---------------------------------------------------------------------------------------------------------------------
 function spraydryer = solver(t,x)
 
-global P Gdry A B C rhoL nAvp MWwater MWair dHev CpL CpG muG dp mp0 vg_dev rho_milk fat kG Diff R inletD Dratio
+global P Gdry A B C rhoL nAvp MWwater MWair dHev CpL CpG muG dp mp0 vg_dev rho_milk fat kG Diff R inletD Dratio rhoG
     
     mp = x(1);
     Gvap = x(2);
@@ -171,8 +171,8 @@ global P Gdry A B C rhoL nAvp MWwater MWair dHev CpL CpG muG dp mp0 vg_dev rho_m
     vs = x(5);
     z = x(6);
 
-    % gas jet velocity
-    Ujet_exit = Gdry/1/(pi/4*inletD^2);
+    % gas jet velocity 
+    Ujet_exit = Gdry/rhoG/(pi/4*inletD^2);
 
     if z < 6.11*inletD
         vg = Ujet_exit;
@@ -201,7 +201,6 @@ global P Gdry A B C rhoL nAvp MWwater MWair dHev CpL CpG muG dp mp0 vg_dev rho_m
     dp = max(Dmin, dp);
     
     % internal non-dim# and coefficients
-    rhoG = P / R / Tg * MWair; 
     Re = abs(rhoG * vs * dp / muG);                     % Reynolds
     Pr = muG * CpG / kG; 								% Prandtl
     Sc = muG / rhoG / Diff;      						% Schmidt
