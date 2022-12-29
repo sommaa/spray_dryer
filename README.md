@@ -6,9 +6,8 @@
   </a>
       <br />
     <h1 align="center">Spray Dryer</h3>
+    <h4 align="center">Mathematical modeling of a spray dryer in matlab and OpenFoam (only flow-dynamic), modified from https://super.chem.polimi.it/ script, detailed informations in pdf folder.</h4>
 </div>
-
-Mathematical modeling of a spray dryer in matlab and OpenFoam (only flow-dynamic), modified from [SuPER](https://super.chem.polimi.it/) script, further informations in [pdf](./pdf).
 
 ## 1-D model
 Simulation details [Matlab-new](./spray_matlab.m):
