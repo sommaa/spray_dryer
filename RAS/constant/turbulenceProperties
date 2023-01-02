@@ -1,0 +1,22 @@
+FoamFile {
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object turbulenceProperties;
+}
+simulationType RAS;
+LES {
+    LESModel SpalartAllmarasDES;
+    turbulence on;
+    printCoeffs on;
+    delta cubeRootVol;
+    cubeRootVolCoeffs {
+        deltaCoeff 1;
+    }
+}
+
+RAS
+{
+    turbulence      on;
+    RASModel        kOmegaSST;
+}

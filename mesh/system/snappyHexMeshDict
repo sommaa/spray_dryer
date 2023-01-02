@@ -1,0 +1,206 @@
+FoamFile
+{
+    version         2;
+    format          ascii;
+    class           dictionary;
+    object          snappyHexMeshDict;
+}
+
+// Exported by SnappyHexMesh GUI add-on for Blender v1.0
+// Source file: C:\Users\andrea_windows\Desktop\newgeom\mesh.blend
+// Export date: 2022-12-30 17:14:26.547894
+
+castellatedMesh true;
+snap            true;
+addLayers       false;
+
+geometry
+{
+    in_air
+    {
+        type triSurfaceMesh;
+        file "in_air.stl";
+        // Min Bounds = [-1.51777e+00 -1.51777e+00  3.38561e+00]
+        // Max Bounds = [ 1.51777e+00  1.51777e+00  3.38561e+00]
+        // Area = 6.25379e+00
+    }
+    in_part
+    {
+        type triSurfaceMesh;
+        file "in_part.stl";
+        // Min Bounds = [-5.47853e-01 -5.47853e-01  3.38561e+00]
+        // Max Bounds = [ 5.47853e-01  5.47853e-01  3.38561e+00]
+        // Area = 9.36880e-01
+    }
+    out_air
+    {
+        type triSurfaceMesh;
+        file "out_air.stl";
+        // Min Bounds = [-6.00000e-01 -4.00000e+00 -3.18791e+00]
+        // Max Bounds = [ 6.00000e-01 -4.00000e+00 -1.98791e+00]
+        // Area = 1.12372e+00
+    }
+    out_part
+    {
+        type triSurfaceMesh;
+        file "out_part.stl";
+        // Min Bounds = [-3.99190e-01 -3.99189e-01 -6.47450e+00]
+        // Max Bounds = [ 3.99190e-01  3.99191e-01 -6.47450e+00]
+        // Area = 4.97410e-01
+    }
+    walls
+    {
+        type triSurfaceMesh;
+        file "walls.stl";
+        // Min Bounds = [-2.75000e+00 -4.00000e+00 -6.47450e+00]
+        // Max Bounds = [ 2.75000e+00  2.75000e+00  3.38561e+00]
+        // Area = 1.75243e+02
+    }
+}
+
+castellatedMeshControls
+{
+    maxLocalCells   10000000;
+    maxGlobalCells  10000000;
+    minRefinementCells 10;
+    maxLoadUnbalance 0.1;
+    nCellsBetweenLevels 3;
+    locationInMesh (0 0 0);
+    allowFreeStandingZoneFaces true;
+    resolveFeatureAngle 120;
+    features
+    (
+        {
+            file "in_air.eMesh";
+            level 0;
+        }
+        {
+            file "in_part.eMesh";
+            level 0;
+        }
+        {
+            file "out_air.eMesh";
+            level 0;
+        }
+        {
+            file "out_part.eMesh";
+            level 0;
+        }
+        {
+            file "walls.eMesh";
+            level 0;
+        }
+
+    );
+    refinementSurfaces
+    {
+        in_air
+        {
+            level (0 0);
+            patchInfo { type patch; }
+        }
+        in_part
+        {
+            level (0 0);
+            patchInfo { type wall; }
+        }
+        out_air
+        {
+            level (1 1);
+            patchInfo { type patch; }
+        }
+        out_part
+        {
+            level (1 1);
+            patchInfo { type wall; }
+        }
+        walls
+        {
+            level (1 1);
+            patchInfo { type wall; }
+        }
+
+    }
+    refinementRegions
+    {
+
+    }
+}
+
+snapControls
+{
+    nSmoothPatch    3;
+    tolerance       2;
+    nSolveIter      300;
+    nRelaxIter      10;
+    nFeatureSnapIter 10;
+    implicitFeatureSnap false;
+    explicitFeatureSnap true;
+    multiRegionFeatureSnap true;
+}
+
+addLayersControls
+{
+    relativeSizes   true;
+    expansionRatio  1;
+    finalLayerThickness 0.3;
+    minThickness    0.1;
+    nGrow           0;
+    featureAngle    120;
+    slipFeatureAngle 30;
+    nRelaxIter      3;
+    nSmoothSurfaceNormals 2;
+    nSmoothNormals  3;
+    nSmoothThickness 10;
+    maxFaceThicknessRatio 0.5;
+    maxThicknessToMedialRatio 0.3;
+    minMedianAxisAngle 90;
+    nBufferCellsNoExtrude 0;
+    nLayerIter      50;
+    layers
+    {
+        in_air
+        {
+             nSurfaceLayers 0;
+        }
+        in_part
+        {
+             nSurfaceLayers 0;
+        }
+        out_air
+        {
+             nSurfaceLayers 0;
+        }
+        out_part
+        {
+             nSurfaceLayers 0;
+        }
+        walls
+        {
+             nSurfaceLayers 0;
+        }
+
+    }
+}
+
+meshQualityControls
+{
+    maxNonOrtho     70;
+    maxBoundarySkewness 8;
+    maxInternalSkewness 3;
+    maxConcave      60;
+    minVol          1e-12;
+    minTetQuality   1e-12;
+    minArea         -1;
+    minTwist        0.05;
+    minDeterminant  0.005;
+    minFaceWeight   0.05;
+    minVolRatio     0.01;
+    minTriangleTwist -1;
+    nSmoothScale    4;
+    errorReduction  0.75;
+}
+
+writeFlags      ( scalarLevels layerSets layerFields );
+
+mergeTolerance  1e-06;

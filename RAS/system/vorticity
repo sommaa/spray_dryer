@@ -1,0 +1,9 @@
+type vorticity;
+libs ("libfieldFunctionObjects.so");
+
+U U;
+field $U;
+
+executeControl writeTime;
+writeControl writeTime;
+

@@ -1,0 +1,33 @@
+FoamFile {
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object controlDict;
+}
+application pimpleFoam;
+startFrom latestTime;
+stopAt endTime;
+purgeWrite 0;
+writeFormat ascii;
+writePrecision 6;
+writeCompression off;
+timeFormat general;
+timePrecision 6;
+runTimeModifiable yes;
+deltaT 0.1;
+startTime 0;
+endTime 70;
+adjustTimeStep yes;
+maxCo 3;
+/* maxDeltaT 0.5; */
+writeControl timeStep;
+writeInterval 400.0;
+
+
+functions
+{
+    #includeFunc scalarTransport(tracer)
+
+}
+
+

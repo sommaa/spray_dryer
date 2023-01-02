@@ -1,0 +1,28 @@
+FoamFile {
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object controlDict;
+}
+application denseParticleFoam;
+startFrom latestTime;
+stopAt endTime;
+purgeWrite 0;
+writeFormat ascii;
+writePrecision 6;
+writeCompression off;
+timeFormat general;
+timePrecision 6;
+runTimeModifiable yes;
+deltaT 0.001;
+startTime 0;
+endTime 35.0;
+adjustTimeStep yes;
+maxCo 3;
+maxDeltaT 0.5;
+writeControl runTime;
+writeInterval 0.5;
+
+
+
+

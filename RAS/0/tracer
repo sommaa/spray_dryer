@@ -1,0 +1,60 @@
+
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      tracer;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    in_air
+    {
+        type            codedFixedValue;
+        value           uniform 0;
+        name            codedPatchBC;
+        code            #{
+            const fvPatch& patch = this->patch();
+            const vectorField& cf = patch.Cf();
+            
+            scalarField& field = *this;
+            forAll(cf, i)
+            {
+                field[i] = ((pow(cf[i].y(),2) + pow(cf[i].x(),2)) <= 0.75) ? 1. : 0.;
+            }
+
+        #};
+    }
+    out_air
+    {
+        type            zeroGradient;
+    }
+    out_part
+    {
+        type            zeroGradient;
+    }
+    in_part
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    walls
+    {
+        type            zeroGradient;
+    }
+}
+
+

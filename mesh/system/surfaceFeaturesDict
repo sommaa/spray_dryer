@@ -1,0 +1,26 @@
+FoamFile
+{
+    version         2;
+    format          ascii;
+    class           dictionary;
+    object          surfaceFeaturesDict;
+}
+
+// Exported by SnappyHexMesh GUI add-on for Blender v1.0
+// Source file: C:\Users\andrea_windows\Desktop\newgeom\mesh.blend
+// Export date: 2022-12-30 17:14:26.547894
+
+
+
+surfaces
+(
+    "in_air.stl"
+    "in_part.stl"
+    "out_air.stl"
+    "out_part.stl"
+    "walls.stl"
+);
+
+includedAngle   150;
+
+

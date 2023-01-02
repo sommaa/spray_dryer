@@ -1,0 +1,92 @@
+FoamFile {
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object fvSolution;
+}
+
+
+solvers
+{
+    p
+    {
+        solver          GAMG;
+        tolerance       1e-6;
+        relTol          0.01;
+        smoother        GaussSeidel;
+        nPreSweeps 2;
+        nPostSweeps 1;
+        cacheAgglomeration on;
+        agglomerator faceAreaPair;
+        nCellsInCoarsestLevel 100;
+        mergeLevels 1;
+    }
+
+    pFinal
+    {
+        solver          GAMG;
+        tolerance       1e-6;
+        relTol          0.01;
+        smoother        GaussSeidel;
+    }
+
+    "(omega|U|k|nuTilda|tracer|Phi)"
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-06;
+        relTol          0.01;
+    }
+
+    "(omega|U|k|nuTilda|tracer|Phi)Final"
+    {
+        $U;
+        tolerance       0.1e-06;
+        relTol          0.01;
+    }
+    
+}
+
+PIMPLE
+{
+    nOuterCorrectors 1;
+    nCorrectors     3;
+    nNonOrthogonalCorrectors 1;
+    pRefCell        0;
+    pRefValue       0;
+    correctPhi off;
+}
+
+SIMPLE
+{
+    nOuterCorrectors 2;
+    nCorrectors     4;
+    nNonOrthogonalCorrectors 1;
+    pRefCell        0;
+    pRefValue       0;
+    residualControl{
+        U 1e-6;
+        "p.*" 1e-6;
+        k 1e-6;
+        omega 1e-6;
+    }
+}
+
+potentialFlow
+{
+    nNonOrthogonalCorrectors 5;
+}
+
+relaxationFactors
+{
+    equations
+    {
+        U 0.3;
+        p 0.7;
+        k 0.3;
+        omega 0.3;
+    }
+    fields{
+        p 0.3;
+    }
+}

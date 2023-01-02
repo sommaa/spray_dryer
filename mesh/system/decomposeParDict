@@ -1,0 +1,34 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      decomposeParDict;
+}
+
+// Exported by SnappyHexMesh GUI add-on for Blender v1.0
+// Source file: C:\Users\andrea_windows\Desktop\newgeom\mesh.blend
+// Export date: 2022-12-30 17:14:26.590516
+
+numberOfSubdomains 10;
+
+method          scotch;
+// method          simple;
+
+simpleCoeffs
+{
+    n               (1 1 10);
+    delta           0.001;
+}
+
+hierarchicalCoeffs
+{
+    n               (1 1 10);
+    delta           0.001;
+    order           xyz;
+}
+
+manualCoeffs
+{
+    dataFile        "cellDecomposition";
+}

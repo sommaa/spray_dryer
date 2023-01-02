@@ -1,0 +1,35 @@
+FoamFile {
+    version 2.0;
+    format ascii;
+    class dictionary;
+    object fvSchemes;
+}
+ddtSchemes {
+    default Euler;
+}
+gradSchemes {
+    default cellLimited leastSquares 1;
+}
+divSchemes {
+
+    default         none;
+    div(alphaPhi.air,U.air) Gauss linearUpwindV unlimited;
+    div(((alpha.air*nuEff.air)*dev2(T(grad(U.air))))) Gauss linear;
+    div(phiGByA,cloud:alpha) Gauss linear;
+    div(alphaPhi.air,epsilon.air) Gauss limitedLinear 1;
+    div(alphaPhi.air,k.air) Gauss limitedLinear 1;
+    div(alphaPhi.air,omega.air) Gauss limitedLinear 1;
+
+}
+laplacianSchemes {
+    default Gauss linear limited corrected 0.5;
+}
+interpolationSchemes {
+    default linear;
+}
+snGradSchemes {
+    default limited 0.5;
+}
+wallDist {
+    method meshWave;
+}
