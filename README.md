@@ -19,7 +19,7 @@ Simulation details [Matlab-corrected](./spray_matlab_corr.m):
 - non-dimensional numbers calculated inside the integral function;
 - constrained evaluation of mass and particle diameter;
 - weighted evaluation of density;
-- surface confined axial jet correlation from [Hydraulic characteristics of turbulent circular jets under surface confinement](https://doi.org/10.1080/09715010.2013.876725)
+- surface confined axial jet correlation from [Hydraulic characteristics of turbulent circular jets under surface confinement](https://doi.org/10.1080/09715010.2013.876725), see [jet folder](./jet) for numerical representation.
 ## 3D-model
 Simulation details [RAS](./RAS):
 - 2Mln mesh cells;
