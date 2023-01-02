@@ -35,6 +35,10 @@ Simulation details [RAS + DPFoam](./PART):
 - 8000 particles;
 - Drag Force + gravity + boundaries rebound/escape;
 
+## Clone it!
+```
+$ git clone https://github.com/sommaa/spray_dryer.git
+```
 # Results:
 - plot [Matlab-new](./spray_matlab.m):
 
