@@ -42,11 +42,11 @@ $ git clone https://github.com/sommaa/spray_dryer.git
 # Results:
 - plot [Matlab-new](./spray_matlab.m):
 
-![SI](https://user-images.githubusercontent.com/120776791/209564200-ea86d385-22e0-42ba-93f6-3a1c8d237bb8.svg)
+![new](https://user-images.githubusercontent.com/120776791/210239070-f98a9f94-06b4-4d32-8390-32ecc7b09e4d.png)
 
 - plot [Matlab-corrected](./spray_dryer_corrected) for D-ratio = 1.5
 
-![1 5](https://user-images.githubusercontent.com/120776791/209564053-b41b8e1c-f7ac-46d1-89bb-2a8bc1c4743d.svg)
+![corr](https://user-images.githubusercontent.com/120776791/210239108-a7332387-e0ab-49cf-8ee4-2ab084810a67.png)
 
 - 3D flow in OpenFoam:
 
