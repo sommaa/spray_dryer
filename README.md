@@ -15,7 +15,7 @@ Simulation details [Matlab-new](./spray_matlab.m):
 - constrained evaluation of mass and particle diameter;
 - weighted evaluation of density;
 
-Simulation details [Matlab-corrected](./spray_dryer_corr):
+Simulation details [Matlab-corrected](./spray_matlab_corr.m):
 - non-dimensional numbers calculated inside the integral function;
 - constrained evaluation of mass and particle diameter;
 - weighted evaluation of density;
@@ -51,4 +51,3 @@ Simulation details [RAS + DPFoam](./PART):
 - matrix particle plot
 
 ![matrix_view](https://user-images.githubusercontent.com/120776791/210233664-ca56476a-c940-4ee9-b692-c8fd118b6ad2.png)
-
