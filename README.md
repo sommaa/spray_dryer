@@ -51,3 +51,8 @@ Simulation details [RAS + DPFoam](./PART):
 - matrix particle plot
 
 ![matrix_view](https://user-images.githubusercontent.com/120776791/210233664-ca56476a-c940-4ee9-b692-c8fd118b6ad2.png)
+
+- turbulent jet in OpenLB:
+
+![jet](https://user-images.githubusercontent.com/120776791/210234167-184b5964-2845-4d13-9c66-8c63ec6dc062.png)
+
