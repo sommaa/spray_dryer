@@ -21,13 +21,13 @@ Simulation details [Matlab-corrected](./spray_dryer_corr):
 - weighted evaluation of density;
 - surface confined axial jet correlation from [Hydraulic characteristics of turbulent circular jets under surface confinement](https://doi.org/10.1080/09715010.2013.876725)
 ## 3D-model
-Simulation details [RAS](./spray_RAS):
+Simulation details [RAS](./RAS):
 - 2Mln mesh cells;
 - k-omega-SST RAS model;
 - inlet Q=20Kg/s;
 - outlet Pout = 0;
 
-Simulation details [RAS + DPFoam](./spray_part):
+Simulation details [RAS + DPFoam](./PART):
 - 2Mln mesh cells;
 - k-omega-SST RAS model;
 - inlet Q=20Kg/s;
@@ -46,20 +46,9 @@ Simulation details [RAS + DPFoam](./spray_part):
 
 - 3D flow in OpenFoam:
 
-![spray_time](https://user-images.githubusercontent.com/120776791/208314061-622f8a5d-346f-4b20-85b9-ec6a555f7d24.png)
-
-![spray_gly](https://user-images.githubusercontent.com/120776791/208314063-88906cc5-339f-478f-a1a1-0c2c6802754f.png)
-
-![spray_tracer](https://user-images.githubusercontent.com/120776791/208314248-bc7ea047-9b46-487f-a056-4fa3db7421a4.png)
-
-https://user-images.githubusercontent.com/120776791/208930344-1c460252-828a-4064-b2e2-bc88c6fd3eec.mp4
-
-https://user-images.githubusercontent.com/120776791/208931821-2a182562-6b0d-4896-b570-e6eeabedb428.mp4
+![bitmap](https://user-images.githubusercontent.com/120776791/210233646-6c381613-8675-4e05-a793-e01691cfe480.png)
 
 - matrix particle plot
 
-![matrix_view](https://user-images.githubusercontent.com/120776791/209577374-08aca8b9-f289-4600-b0a1-6500061462bc.png)
+![matrix_view](https://user-images.githubusercontent.com/120776791/210233664-ca56476a-c940-4ee9-b692-c8fd118b6ad2.png)
 
-- mesh
-
-![spray_mesh](https://user-images.githubusercontent.com/120776791/208314557-cd86c945-0d5a-4090-be0d-0090b2b051e3.png)
