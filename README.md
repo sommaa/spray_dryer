@@ -9,6 +9,13 @@
     <h4 align="center">Mathematical modeling of a spray dryer in matlab and OpenFoam (only flow-dynamic), modified from https://super.chem.polimi.it/ script, detailed informations in pdf folder.</h4>
 </div>
 
+<div align="center">
+
+<a href='https://ko-fi.com/sommaa' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+
+</div>
+  
+
 ## 1-D model
 Simulation details [Matlab-new](./spray_matlab.m):
 - non-dimensional numbers calculated inside the integral function;
