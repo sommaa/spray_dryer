@@ -12,7 +12,7 @@
     <img src="https://user-images.githubusercontent.com/120776791/210235026-1aae8c7f-3931-4496-b92d-35e1187e60de.png" alt="Logo" width="450" height="240">
   </a>
       <br />
-    <h1 align="center">Spray Dryer</h3>
+    <h1 align="center">Spray Dryer Modeling</h3>
     <h4 align="center">Mathematical modeling of a spray dryer in matlab and OpenFoam (only flow-dynamic), modified from https://super.chem.polimi.it/ script, detailed informations in pdf folder.</h4>
 </div>
 
