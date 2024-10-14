@@ -13,7 +13,7 @@
   </a>
       <br />
     <h1 align="center">Spray Dryer Modeling</h3>
-    <h4 align="center">Mathematical modeling of a spray dryer in matlab and OpenFoam (only flow-dynamic), modified from https://super.chem.polimi.it/ script, detailed informations in pdf folder.</h4>
+    <h4 align="center">Mathematical modeling of a spray dryer in matlab and OpenFoam 10 (only flow-dynamic), modified from https://super.chem.polimi.it/ script, detailed informations in pdf folder.</h4>
 </div>
 
 <div align="center">
